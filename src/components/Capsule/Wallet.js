@@ -22,8 +22,7 @@ function CapsuleWallet() {
         onClose={() => setIsOpen(false)}
         appName="Blockchain HQ"
         oAuthMethods={['GOOGLE', 'TWITTER', 'DISCORD']}
-        authLayout={["AUTH:FULL", "EXTERNAL:FULL"]}
-        externalWallets={["METAMASK"]}
+        authLayout={["AUTH:FULL", "EXTERNAL:FULL"]} 
       />
     </div>
   );

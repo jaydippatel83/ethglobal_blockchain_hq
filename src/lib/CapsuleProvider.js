@@ -4,12 +4,12 @@ import { capsuleConnector } from "@usecapsule/wagmi-v2-integration";
 import { OAuthMethod } from "@usecapsule/web-sdk"; 
 import { createConfig, WagmiProvider, useConnect } from "wagmi";
 import { http } from "wagmi";
-import { sepolia } from "wagmi/chains"; 
-import { capsuleClient } from "./capsule";
+import { sepolia } from "wagmi/chains";  
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { capsule } from "./capsule";
 
 const connector = capsuleConnector({
-  capsule: capsuleClient,
+  capsule:  capsule,
   chains: [sepolia],
   appName: "Blockchain HQ",
   options: {},

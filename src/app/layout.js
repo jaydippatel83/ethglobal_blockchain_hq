@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import "@usecapsule/react-sdk/styles.css";
+import AuthWithWagmi from "@/lib/CapsuleProvider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -24,7 +25,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <AuthWithWagmi>
+        {children} 
+        </AuthWithWagmi>
       </body>
     </html>
   );
