@@ -8,8 +8,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        primaryBlue: "#0057FF",  // Background blue
+        accentYellow: "#FFDA77", // Card background yellow
+        darkText: "#1A1A1A",     // Dark text color
+        lightGray: "#F2F2F2",    // Light gray for backgrounds
+        secondaryText: "#606060", // Light text for descriptions
+        highlightGreen: "#A0F2E3" // Countdown highlight color
       },
     },
   },
