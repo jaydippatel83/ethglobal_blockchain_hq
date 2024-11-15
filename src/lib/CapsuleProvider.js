@@ -4,13 +4,14 @@ import { capsuleConnector } from "@usecapsule/wagmi-v2-integration";
 import { OAuthMethod } from "@usecapsule/web-sdk"; 
 import { createConfig, WagmiProvider, useConnect } from "wagmi";
 import { http } from "wagmi";
-import { sepolia } from "wagmi/chains";  
+import { sepolia,celo } from "wagmi/chains";  
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { capsule } from "./capsule";
+import { CapsuleEvmProvider, metaMaskWallet } from "@usecapsule/evm-wallet-connectors";
 
 const connector = capsuleConnector({
   capsule:  capsule,
-  chains: [sepolia],
+  chains: [sepolia,celo],
   appName: "Blockchain HQ",
   options: {},
   nameOverride: "Capsule",
@@ -19,6 +20,7 @@ const connector = capsuleConnector({
   disableEmailLogin: false,
   disablePhoneLogin: false,
   onRampTestMode: true, 
+  externalWallets: ["METAMASK"]
 });
 
 const config = {
@@ -36,7 +38,15 @@ const AuthWithWagmi = ({children}) => {
   return (
     <QueryClientProvider client={queryClient}>
       <WagmiProvider config={wagmiProviderConfig}>
+        <CapsuleEvmProvider 
+         config={{
+            projectId: process.env.NEXT_PUBLIC_APP_CAPSULE_API_KEY, 
+            chains: [sepolia, celo],
+            wallets: [metaMaskWallet],
+          }}
+        >
         {children}
+        </CapsuleEvmProvider>
       </WagmiProvider>
     </QueryClientProvider>
   );

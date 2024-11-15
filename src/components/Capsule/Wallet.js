@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { capsule } from "@/lib/capsule";
 import dynamic from 'next/dynamic';
 import ButtonComponent from "../Button";
-import { useAccount, useConnect, useDisconnect } from 'wagmi';
+import { useAccount, useConnect, useDisconnect } from 'wagmi';  
 
 const CapsuleModal = dynamic(
   () => import('@usecapsule/react-sdk').then((mod) => mod.CapsuleModal),
@@ -31,8 +31,9 @@ function CapsuleWallet() {
         onClose={() => setIsOpen(false)}
         appName="Blockchain HQ"
         oAuthMethods={['GOOGLE', 'TWITTER', 'DISCORD']}
-        authLayout={["AUTH:FULL", "EXTERNAL:FULL"]} 
-      />
+        authLayout={["AUTH:FULL", "EXTERNAL:FULL"]}   
+        externalWallets={['METAMASK']}
+      />  
     </div>
   );
 }
