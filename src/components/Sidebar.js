@@ -1,9 +1,11 @@
 'use client'
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useAccount } from 'wagmi';
 
 export default function Sidebar() {
   const pathname = usePathname();
+  const {address, isConnected} = useAccount();
 
   const isActive = (path) => {
     const pathMap = {
@@ -12,7 +14,7 @@ export default function Sidebar() {
       '/dashboard/questions': () => pathname.startsWith('/dashboard/questions'),
       '/dashboard/builders': () => pathname.startsWith('/dashboard/builders'),
       '/dashboard/leaderboard': () => pathname.startsWith('/dashboard/leaderboard'),
-      '/dashboard/register': () => pathname.startsWith('/dashboard/register'),
+      '/dashboard/profile': () => pathname.startsWith('/dashboard/profile'),
     };
 
     return pathMap[path] ? pathMap[path]() : pathname.startsWith(path) && (pathname.length === path.length || pathname[path.length] === '/');
@@ -40,9 +42,12 @@ export default function Sidebar() {
         <Link href="/dashboard/leaderboard" className={`block text-gray-800 font-bold px-4 py-2 rounded-full ${isActive('/dashboard/leaderboard') ? 'bg-white border border-black shadow-[0px_4px_0px rgba(0,0,0,1)]' : 'hover:bg-white hover:shadow-[0px_4px_0px rgba(0,0,0,1)]'} transition hover:border border-black`}>
          Leaderboard
         </Link> 
-        <Link href="/dashboard/register" className={`block text-gray-800 font-bold px-4 py-2 rounded-full ${isActive('/dashboard/register') ? 'bg-white border border-black shadow-[0px_4px_0px rgba(0,0,0,1)]' : 'hover:bg-white hover:shadow-[0px_4px_0px rgba(0,0,0,1)]'} transition hover:border border-black`}>
-         Register 
-        </Link> 
+        {
+          isConnected && <Link href="/dashboard/profile" className={`block text-gray-800 font-bold px-4 py-2 rounded-full ${isActive('/dashboard/profile') ? 'bg-white border border-black shadow-[0px_4px_0px rgba(0,0,0,1)]' : 'hover:bg-white hover:shadow-[0px_4px_0px rgba(0,0,0,1)]'} transition hover:border border-black`}>
+          Profile 
+         </Link> 
+        }
+        
       </nav>
 
       {/* Footer */}

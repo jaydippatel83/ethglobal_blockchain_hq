@@ -36,8 +36,9 @@ const queryClient = new QueryClient();
 
 const AuthWithWagmi = ({children}) => {
   return (
-    <QueryClientProvider client={queryClient}>
+    
       <WagmiProvider config={wagmiProviderConfig}>
+        <QueryClientProvider client={queryClient}> 
         <CapsuleEvmProvider 
          config={{
             projectId: process.env.NEXT_PUBLIC_APP_CAPSULE_API_KEY, 
@@ -47,8 +48,9 @@ const AuthWithWagmi = ({children}) => {
         >
         {children}
         </CapsuleEvmProvider>
+        </QueryClientProvider>
       </WagmiProvider>
-    </QueryClientProvider>
+    
   );
 };
 

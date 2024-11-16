@@ -1,7 +1,10 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import "@usecapsule/react-sdk/styles.css";
-import AuthWithWagmi from "@/lib/CapsuleProvider";  
+import AuthWithWagmi from "@/lib/CapsuleProvider"; 
+import 'react-toastify/dist/ReactToastify.css'; 
+import { ToastContainer } from "react-toastify";
+import 'react-quill/dist/quill.snow.css';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -36,7 +39,8 @@ export default function RootLayout({ children }) {
     <html lang="en"> 
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${unigo.variable} ${bebas.variable} antialiased`}
-      >
+      > 
+        <ToastContainer />
         <AuthWithWagmi>
         {children} 
         </AuthWithWagmi>

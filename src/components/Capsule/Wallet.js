@@ -1,9 +1,13 @@
 'use client';
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { capsule } from "@/lib/capsule";
 import dynamic from 'next/dynamic';
 import ButtonComponent from "../Button";
-import { useAccount, useConnect, useDisconnect } from 'wagmi';
+import { useAccount } from 'wagmi';
+import UserInfo from "../header/UserInfo";
+import { doc, setDoc, getDoc } from "firebase/firestore";
+import { db } from "@/lib/firebase";
+import { toast } from "react-toastify";
 
 const CapsuleModal = dynamic(
   () => import('@usecapsule/react-sdk').then((mod) => mod.CapsuleModal),
@@ -13,30 +17,57 @@ const CapsuleModal = dynamic(
 
 function CapsuleWallet() {
   const [isOpen, setIsOpen] = useState(false);
-  const { address, isConnected } = useAccount();
-  const { connect, connectors } = useConnect();
-  const { disconnect } = useDisconnect();
+  const { address, isConnected } = useAccount();  
 
   const formatWalletAddress = (address) => {
     return `${address.slice(0, 6)}...${address.slice(-4)}`;
   };
 
+  useEffect(()=>{
+    if (isConnected && address) {
+      userAdd(address);
+  }
+  },[isConnected])
+
+  console.log(address,"address");
+  
+
+  const userAdd = async (walletAddress) => {
+    if (!walletAddress) {
+        toast.error("Wallet address is missing.");
+        return;
+    }
+
+    try { 
+        const userDocRef = doc(db, "users", walletAddress); 
+        const userSnapshot = await getDoc(userDocRef); 
+        if (userSnapshot.exists()) {
+            toast.success("User already exists");
+        } else { 
+            await setDoc(userDocRef, {
+                wallet: walletAddress,
+                createdAt: new Date().toISOString(),
+            });
+
+            toast.success("New user added");
+        }
+    } catch (error) {
+        console.error("Error adding user to", error.message);
+    }
+};
+
 
   return (
     <div>
+      <div className="flex">
       <ButtonComponent
         onClick={() => setIsOpen(true)}
-        text={isConnected ? <div className="flex ">
-          formatWalletAddress(address)
-          <div className="w-8 h-8 rounded-full bg-gray-300 border border-gray-400">
-            <img
-              src="https://via.placeholder.com/40"
-              alt="Profile"
-              className="w-full h-full rounded-full object-cover"
-            />
-          </div>
-        </div>
-          : "Sign in with Capsule"} />
+        text={isConnected ? `${formatWalletAddress(address)}` : "Sign in with Capsule"} > 
+      </ButtonComponent>
+      {
+        isConnected && <UserInfo user={address}/>
+      }
+      </div>
       <CapsuleModal
         capsule={capsule}
         isOpen={isOpen}

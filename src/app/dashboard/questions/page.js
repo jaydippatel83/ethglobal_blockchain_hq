@@ -1,10 +1,13 @@
 import DashboardLayout from '@/components/dashboard/DashboardLayout';
+import QuestionsHomePage from '@/components/questions/QuestionHomePage';
+import { fetchAllQuestions } from '@/lib/questions';
 import React from 'react';
 
-const page = () => {
+const page = async() => {
+    const  {pageInfo, questions} = await fetchAllQuestions();  
     return (
         <DashboardLayout>
-            <h1>Profile</h1>
+           <QuestionsHomePage initialQuestions={questions} initialPage={pageInfo}/>
         </DashboardLayout>
     );
 };

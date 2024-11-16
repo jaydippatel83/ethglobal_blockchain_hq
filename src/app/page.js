@@ -1,9 +1,7 @@
 import CapsuleWallet from "@/components/Capsule/Wallet";
 import LandingCards from "@/components/landing/LandingCards";
 import QuestionsCardComponents from "@/components/landing/QuestionsCardComponents";
-import WorksCardComponents from "@/components/landing/WorksCardComponents";
-import QuestionsCards from "@/components/landing/WorksCardComponents";
-
+import WorksCardComponents from "@/components/landing/WorksCardComponents";  
 
 
 export default function Home() {

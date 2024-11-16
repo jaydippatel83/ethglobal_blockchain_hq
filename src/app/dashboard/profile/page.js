@@ -1,12 +1,16 @@
 import DashboardLayout from '@/components/dashboard/DashboardLayout';
+import UserProfile from '@/components/profile/UserProfile';
 import React from 'react';
 
 const page = () => {
     return (
         <DashboardLayout>
-            <h1>Profile</h1>
+          <UserProfile /> 
         </DashboardLayout>
     );
 };
 
 export default page;
+
+
+ 

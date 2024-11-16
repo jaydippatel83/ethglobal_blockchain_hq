@@ -1,10 +1,11 @@
+import DashboardLayout from '@/components/dashboard/DashboardLayout';
 import React from 'react';
 
 const Register = () => {
     return (
-        <div>
+        <DashboardLayout>
             <h1>Register</h1>
-        </div>
+        </DashboardLayout>
     );
 };
 
