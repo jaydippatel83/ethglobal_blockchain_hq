@@ -1,10 +1,18 @@
+import AgreementApp from "@/components/AgreementApp";
 import Creators from "@/components/Creators";
-import Layout from "@/components/Layout"; 
+import HomePage from "@/components/HomePage";
+import Layout from "@/components/Layout";
 
 export default function Home() {
   return (
-    <Layout>
-      <Creators />
-    </Layout>
+    <>
+
+      <Layout>
+        <Creators />
+        <HomePage />
+        <AgreementApp />
+      </Layout>
+
+    </>
   );
 }
