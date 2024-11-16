@@ -1,23 +1,31 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 export default function Sidebar() {
   return (
-    <aside className="bg-retroGray w-1/5 min-h-screen p-6">
-      <h1 className="text-2xl font-bold text-retroBlack mb-8">BLOCKCHAIN HQ</h1>
+    <div className="w-1/4 min-h-screen bg-white p-6 rounded-tr-lg rounded-tl-2xl flex flex-col justify-between">
+      {/* Logo */}
+      <h1 className="text-3xl font-bold mb-8">Blockchain HQ</h1>
+
+      {/* Menu */}
       <nav className="space-y-4">
-        <Link href="/" className="block text-retroBlack font-semibold hover:text-retroOrange">
-         Home
+        <Link href="#" className="block text-gray-800 font-bold px-4 py-2 rounded-full hover:bg-sckinCustom  transition hover:border border-black hover:shadow-[0px_4px_0px_rgba(0,0,0,1)] ">
+          Home
         </Link>
-        <Link href="/questions" className="block text-retroBlack font-semibold hover:text-retroOrange">
+        <Link href="#" className="block text-gray-800 font-bold px-4 py-2 rounded-full hover:bg-greenCustom  transition hover:border border-black hover:shadow-[0px_4px_0px_rgba(0,0,0,1)] ">
+          Gig & Works
+        </Link>
+        <Link href="#" className="block text-gray-800 font-bold px-4 py-2 rounded-full hover:bg-yellowCustom  transition hover:border border-black hover:shadow-[0px_4px_0px_rgba(0,0,0,1)] ">
           Q & A
         </Link>
-        <Link href="/profile" className="block text-retroBlack font-semibold hover:text-retroOrange">
-          Profile
+        <Link href="#" className="block text-gray-800 font-bold px-4 py-2 rounded-full hover:bg-blueCustom  transition hover:border border-black hover:shadow-[0px_4px_0px_rgba(0,0,0,1)] ">
+          Builders Point
         </Link> 
       </nav>
-      <button className="mt-10 bg-retroOrange text-white font-bold py-2 px-4 rounded-lg shadow-lg">
-        Log Out
-      </button>
-    </aside>
+
+      {/* Footer */}
+      <div className="mt-auto">
+         
+      </div>
+    </div>
   );
 }
