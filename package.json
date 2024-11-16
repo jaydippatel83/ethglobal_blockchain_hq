@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.1.5",
+    "@dicebear/collection": "^9.2.1",
+    "@dicebear/core": "^9.2.1",
     "@usecapsule/evm-wallet-connectors": "^1.7.0",
     "@usecapsule/react-sdk": "^4.7.0",
     "@usecapsule/wagmi-v2-integration": "^3.7.0",

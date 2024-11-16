@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 
-const QuestionsCards = () => {
+const WorksCardComponents = () => {
     const items = [
         {
             id: 1,
@@ -39,9 +39,15 @@ const QuestionsCards = () => {
     ];
     return (
         <div className="flex justify-center items-center ">
-            <div className="w-[1080px]  border border-gray-300 rounded-custom p-6 shadow-lg">
+            <div className="w-[1100px]  border border-gray-300 rounded-custom p-6  shadow-lg">
                 {/* Header Section */}
-                <h1 className="mb-2 text-3xl hover:underline cursor-pointer">Gigs & Works</h1>
+                <h1 className="mb-2 
+                 bg-yellowCustom text-black 
+                font-bold p-2 
+                rounded-lg 
+                shadow-[0px_4px_0px_rgba(0,0,0,1)] 
+                border border-black w-full sm:w-[200px] mx-auto
+                ">Gigs & Works</h1>
 
                 <div className="p-4 space-y-6">
                     {items.map((item) => (
@@ -99,10 +105,10 @@ const QuestionsCards = () => {
                             </div>
                         </div>
                     ))}
-                </div> 
+                </div>
             </div>
         </div>
     );
 };
 
-export default QuestionsCards;
+export default WorksCardComponents;

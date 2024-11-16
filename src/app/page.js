@@ -1,8 +1,10 @@
-import CapsuleWallet from "@/components/Capsule/Wallet"; 
-import LandingCards from "@/components/landing/LandingCards"; 
-import QuestionsCards from "@/components/landing/questionsCards";
+import CapsuleWallet from "@/components/Capsule/Wallet";
+import LandingCards from "@/components/landing/LandingCards";
+import QuestionsCardComponents from "@/components/landing/QuestionsCardComponents";
+import WorksCardComponents from "@/components/landing/WorksCardComponents";
+import QuestionsCards from "@/components/landing/WorksCardComponents";
 
- 
+
 
 export default function Home() {
   return (
@@ -16,10 +18,13 @@ export default function Home() {
 
         <div className="mx-auto py-10 text-center md:py-20">
           <h1 className="text-5xl md:text-8xl font-bebas font-semibold">The Super App for Web3 Builders</h1>
-        </div> 
-        <LandingCards/>
-        <div className="mx-auto py-10 text-center md:py-20"> 
-        <QuestionsCards/>
+        </div>
+        <LandingCards />
+        <div className="mx-auto py-10 text-center md:py-20">
+          <WorksCardComponents />
+        </div>
+        <div className="mx-auto  text-center mb-10">
+          <QuestionsCardComponents />
         </div>
       </div>
     </div>
