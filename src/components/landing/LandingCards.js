@@ -34,9 +34,9 @@ const cardData = [
 
 const LandingCards = () => {
     return (
-        <div className="grid grid-cols-3 gap-4 mx-auto justify-items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mx-auto justify-items-center">
             {cardData.map(card => ( // Mapping over the card data
-                <div key={card.id} className={`flex flex-col items-center ${card.bgColor} border border-gray-300 rounded-lg shadow-lg p-8 w-80`}>
+                <div key={card.id} className={`flex flex-col items-center ${card.bgColor} border border-gray-300 rounded-lg shadow-lg p-8 min-w-56`}>
                     {/* Icon or Image */}
                     <Image
                         width={300}

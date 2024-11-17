@@ -1,3 +1,4 @@
+import { generateAvatar } from '@/lib/generateAvatar';
 import Image from 'next/image';
 import React from 'react';
 
@@ -5,7 +6,7 @@ const WorksCardComponents = () => {
     const items = [
         {
             id: 1,
-            logo: "/assets/solidity-dev.png", // Replace with actual logo path
+            logo: generateAvatar("/assets/solidity-dev.png"), // Replace with actual logo path
             title: "Solidity Smart Contract Developer for DeFi Application",
             company: "DeFi Corp",
             badge: "Bounty",
@@ -16,7 +17,7 @@ const WorksCardComponents = () => {
         },
         {
             id: 2,
-            logo: "/assets/rust-audit.png", // Replace with actual logo path
+            logo: generateAvatar("/assets/rust-audit.png"), // Replace with actual logo path
             title: "Rust Contract Audit",
             company: "Audit Co",
             badge: "Audit",
@@ -27,7 +28,7 @@ const WorksCardComponents = () => {
         },
         {
             id: 3,
-            logo: "/assets/ui-ux-designer.png", // Replace with actual logo path
+            logo: generateAvatar("/assets/ui-ux-designer.png"), // Replace with actual logo path
             title: "UI/UX Designer for Payment Protocol DApp",
             company: "Design Studio",
             badge: "Project",
@@ -38,7 +39,7 @@ const WorksCardComponents = () => {
         },
         {
             id: 4,
-            logo: "/assets/technical-writer.png", // Replace with actual logo path
+            logo: generateAvatar("/assets/technical-writer.png"), // Replace with actual logo path
             title: "Technical Writer for Developer Docs",
             company: "Tech Writers Inc.",
             badge: "Bounty",
@@ -49,7 +50,7 @@ const WorksCardComponents = () => {
         },
         {
             id: 5,
-            logo: "/assets/video-creator.png", // Replace with actual logo path
+            logo: generateAvatar("/assets/video-creator.png"), // Replace with actual logo path
             title: "Educational Video Content Creator",
             company: "EduMedia",
             badge: "Project",
