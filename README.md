@@ -15,11 +15,14 @@
 6) Requesting media coverage
 
 
+
+![Screenshot 2024-11-17 at 7 39 21 AM (1)](https://github.com/user-attachments/assets/43effef7-5ebe-4325-95d7-9a32e529ae61)
+
+
 ![Screenshot 2024-11-17 at 5 59 15 AM](https://github.com/user-attachments/assets/88d1960f-8a70-46bc-8603-ca32972b5b8f)
 
 
 
-![Screenshot 2024-11-17 at 7 39 21 AM (1)](https://github.com/user-attachments/assets/43effef7-5ebe-4325-95d7-9a32e529ae61)
 
 ![Screenshot 2024-11-17 at 7 39 21 AM](https://github.com/user-attachments/assets/2c5de975-0c25-4cb1-aaf1-7246c179996d)
 
