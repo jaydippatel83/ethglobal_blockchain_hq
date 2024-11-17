@@ -23,9 +23,6 @@
 
 
 
-
-![Screenshot 2024-11-17 at 7 39 21 AM](https://github.com/user-attachments/assets/2c5de975-0c25-4cb1-aaf1-7246c179996d)
-
 ![Screenshot 2024-11-17 at 7 43 11 AM](https://github.com/user-attachments/assets/0247be2f-b51f-4ecf-adda-b80ed329fcc0)
 ![Screenshot 2024-11-16 at 7 21 11 PM](https://github.com/user-attachments/assets/a1a494d6-46ef-4f13-b67d-36efd5cb44c8)
 
