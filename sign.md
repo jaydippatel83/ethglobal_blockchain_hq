@@ -1,3 +1,5 @@
+Live App: https://blockchainhq.xyz
+
 # Contract :  Blockchain_HQ
 
 https://celo-alfajores.blockscout.com/address/0x2BE1b8482D30b5d67b380B2C812DECA8a298F8aA 
@@ -31,9 +33,8 @@ https://testnet-scan.sign.global/schema/onchain_evm_44787_0x32
         });
 
         return spInstance.attest(attestation, "", "", "");
-    }```
+    }
 
-Live App: https://blockchainhq.xyz
 
  
 
