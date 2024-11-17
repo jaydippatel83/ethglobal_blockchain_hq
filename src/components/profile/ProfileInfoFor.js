@@ -1,7 +1,7 @@
 import { generateAvatar } from "@/lib/generateAvatar";
 
 const ProfileInfo = ({ profileData, handleEditProfile }) => {
-   const avatar = generateAvatar(profileData.username);
+   const avatar = generateAvatar(profileData?.wallet);
     
     return (
         <>
@@ -9,8 +9,7 @@ const ProfileInfo = ({ profileData, handleEditProfile }) => {
                 <div className="absolute bottom-0 left-24 transform -translate-x-1/2 translate-y-1/2">
                     {profileData ? (
                         <img
-                            src={avatar }
-                            alt={profileData?.username}
+                            src={avatar } 
                             className="rounded-full border-4 border-white h-32 w-32 object-cover"
                         />
                     ) : (

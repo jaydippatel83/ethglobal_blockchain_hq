@@ -81,7 +81,7 @@ const MyQuestionList = () => {
   return (
     <div className="justify-between">
       {questions.map((question) => (
-        <div key={question._id} className="border p-4 rounded-lg shadow-sm mb-4">
+        <div key={question.id} className="border p-4 rounded-lg shadow-sm mb-4">
           <div className="flex justify-between items-center mb-2">
             <h3 className="text-lg font-semibold">
               <Link href={`/question/${question._id}/${question.slug}`}>{question.title}</Link>

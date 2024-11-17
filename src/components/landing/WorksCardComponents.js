@@ -5,36 +5,58 @@ const WorksCardComponents = () => {
     const items = [
         {
             id: 1,
-            logo: "/assets/gig-economy.png", // Replace with actual logo path
-            title: "Catoff on Blinks: Create Mini-Game or Gaming API Dev Bounty",
-            company: "Catoff",
+            logo: "/assets/solidity-dev.png", // Replace with actual logo path
+            title: "Solidity Smart Contract Developer for DeFi Application",
+            company: "DeFi Corp",
             badge: "Bounty",
-            due: "Due in 1d",
-            comments: 10,
+            due: "Due in 3d",
+            comments: 5,
+            reward: "2,000",
+            currency: "ETH",
+        },
+        {
+            id: 2,
+            logo: "/assets/rust-audit.png", // Replace with actual logo path
+            title: "Rust Contract Audit",
+            company: "Audit Co",
+            badge: "Audit",
+            due: "Due in 2d",
+            comments: 8,
+            reward: "1,500",
+            currency: "USDC",
+        },
+        {
+            id: 3,
+            logo: "/assets/ui-ux-designer.png", // Replace with actual logo path
+            title: "UI/UX Designer for Payment Protocol DApp",
+            company: "Design Studio",
+            badge: "Project",
+            due: "Due in 5d",
+            comments: 12,
+            reward: "3,000",
+            currency: "DAI",
+        },
+        {
+            id: 4,
+            logo: "/assets/technical-writer.png", // Replace with actual logo path
+            title: "Technical Writer for Developer Docs",
+            company: "Tech Writers Inc.",
+            badge: "Bounty",
+            due: "Due in 4d",
+            comments: 2,
             reward: "1,000",
             currency: "USDC",
         },
         {
-            id: 2,
-            logo: "/assets/question.png", // Replace with actual logo path
-            title: "Write a Twitter thread on how to play: Skiddy Samo",
-            company: "Octo Gaming",
-            badge: "Bounty",
-            due: "Due in 1d",
-            comments: 23,
-            reward: "4,000",
-            currency: "OTK",
-        },
-        {
-            id: 3,
-            logo: "/assets/teamwork.png", // Replace with actual logo path
-            title: "Graphic designer for Wifi Dabba",
-            company: "Wifi Dabba",
+            id: 5,
+            logo: "/assets/video-creator.png", // Replace with actual logo path
+            title: "Educational Video Content Creator",
+            company: "EduMedia",
             badge: "Project",
-            due: "Due in 1d",
-            comments: 4,
-            reward: "700-1.25k",
-            currency: "USDC",
+            due: "Due in 7d",
+            comments: 3,
+            reward: "1,200",
+            currency: "ETH",
         },
     ];
     return (

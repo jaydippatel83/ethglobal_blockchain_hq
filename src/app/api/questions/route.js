@@ -3,13 +3,13 @@ import { NextResponse } from "next/server";
 
 export async function GET(req, res) {
     const searchParams = req.nextUrl.searchParams;
-    const authorId = searchParams.get("authorId");
+    const wallet = searchParams.get("wallet");
     const page = parseInt(searchParams.get("page"), 10) || 1;  
 
     let data;
     try {
-        if (authorId) {
-            data = await fetchQuestionsByAuthor(authorId, page);  
+        if (wallet) {
+            data = await fetchQuestionsByAuthor(wallet, page);  
         } else {
             data = await fetchAllQuestions(page);  
         }

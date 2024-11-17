@@ -17,10 +17,10 @@ const QuestionsHomePage = ({ initialQuestions, initialPage }) => {
     const handleMyQuestionClick = () => setCurrentView('my');
     const handleAllQuestionClick = () => setCurrentView('all');
 
-    const { data: questions, mutate } = useSWR(`/api/questions?page=${page}`, fetcher, {
-        fallbackData: initialQuestions || [],
-        refreshInterval: 30000,
-    }); 
+    // const { data: questions, mutate } = useSWR(`/api/questions?page=${page}`, fetcher, {
+    //     fallbackData: initialQuestions || [],
+    //     refreshInterval: 30000,
+    // }); 
 
     return (
         <div className="section-padding">
@@ -57,13 +57,13 @@ const QuestionsHomePage = ({ initialQuestions, initialPage }) => {
                 
                 <div>
                     {currentView === 'form' ? (
-                        <AskQuestionForm mutate={mutate} />
+                        <AskQuestionForm  />
                     ) : currentView === 'my' ? (
                         <MyQuestionList  />
                     ) : (
                         <QuestionList 
-                            questions={questions} 
-                            pageInfo={questions?.pageInfo}  
+                            questions={initialQuestions} 
+                            pageInfo={page}  
                         /> 
                     )}
                 </div>

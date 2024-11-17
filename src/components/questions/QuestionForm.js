@@ -1,13 +1,12 @@
 'use client';
-import React, { useEffect, useState, useCallback } from 'react';
-import ReactQuill from 'react-quill';
+import React, { useEffect, useState, useCallback } from 'react'; 
 import TagInput from './TagInput';  
 import { toast } from 'react-toastify';
 import { useAccount } from "wagmi";
 import { addQuestion, uploadQuestionImage } from '@/lib/questions';
-import { getUserData } from '@/lib/profile';
+import { getUserData } from '@/lib/profile'; 
 
-const AskQuestionForm = ({ mutate }) => {
+const AskQuestionForm = () => {
     const { address, isConnected } = useAccount();
     const [question, setQuestion] = useState({
         title: '',
@@ -125,8 +124,7 @@ const AskQuestionForm = ({ mutate }) => {
             try {  
                 await addQuestion(questionData);
                 toast.success('Question added successfully!');
-                setLoader(false);
-                mutate()
+                setLoader(false); 
                 setQuestion({ details: "", tags: [], title: "" });
 
             } catch (error) {
@@ -160,18 +158,17 @@ const AskQuestionForm = ({ mutate }) => {
 
                 <div className="mb-8">
                     <label className="block text-gray-700 text-sm font-bold mb-2">Details</label>
-                    <ReactQuill
+                    <textarea
                         value={question.details}
-                        onChange={handleDetailsChange} 
-                        modules={AskQuestionForm.modules}
-                        formats={AskQuestionForm.formats}
-                        className="h-48 mb-14"
+                        onChange={(e) => handleDetailsChange(e.target.value)}
+                        className="h-48 mb-14 w-full border rounded p-2"
+                        placeholder="Enter your question details here..."
                     />
                 </div>
 
                 <button
                     onClick={handleSubmit}
-                    className="mt-4 font-bold text-sm sm:text-sm bg-gradient-to-r text-white px-2 sm:px-2 py-1 sm:py-2 from-ct-blue-dark to-ct-blue-light min-w-[80px] sm:min-w-[100px] text-center rounded-md"
+                    className="mt-4 font-bold text-sm sm:text-sm  bg-blueCustom text-white px-2 sm:px-2 py-1 sm:py-2    min-w-[80px] sm:min-w-[100px] text-center rounded-md"
                 >
                     {loader ? <div className="circular-progress"></div> : `Publish your question`}
                 </button>

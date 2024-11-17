@@ -42,7 +42,7 @@ function CapsuleWallet() {
         const userDocRef = doc(db, "users", walletAddress); 
         const userSnapshot = await getDoc(userDocRef); 
         if (userSnapshot.exists()) {
-            toast.success("User already exists");
+            toast.success("Welcome Back!");
         } else { 
             await setDoc(userDocRef, {
                 wallet: walletAddress,

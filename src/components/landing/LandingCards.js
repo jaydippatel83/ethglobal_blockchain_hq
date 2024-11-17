@@ -11,13 +11,20 @@ const cardData = [
     },
     {
         id: 2,
+        title: "OS Fund Raise",
+        imageSrc: "/assets/crowd-funding.png",
+        altText: "crowdfund",
+        bgColor: "bg-white"
+    },
+    {
+        id: 3,
         title: "Q & A",
         imageSrc: "/assets/question.png",
         altText: "q&a",
         bgColor: "bg-greenCustom"
     },
     {
-        id: 3,
+        id: 4,
         title: "Builders Point",
         imageSrc: "/assets/teamwork.png",
         altText: "Teamwork",

@@ -11,7 +11,7 @@ const QuestionList = ({ questions, hasMore, loadMore }) => {
                     <div key={q._id} className="mb-4 p-4 border-b last:border-b-0">
 
                         <h3 className="text-lg font-semibold hover:text-ct-blue-dark">
-                            <Link href={`/question/${q._id}/${q.slug}`}>
+                            <Link href={`/question/${q.id}/${q.slug}`}>
                                 {q.title}
                             </Link>
                         </h3>

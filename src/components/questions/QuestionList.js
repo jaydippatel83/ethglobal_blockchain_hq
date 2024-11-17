@@ -3,21 +3,22 @@ import Link from 'next/link';
 import NoDataFound from '../NoDataFound';
 import AuthorInfo from '../profile/ProfileInfo';
 import SkeletonQue from '../SkeletonQue';
+import { getUserData } from '@/lib/profile';
 
 const QuestionList = ({ questions, pageInfo }) => {
-    const [data, setData] = useState(questions);
+    const [data, setData] = useState(questions || []);
     const [currentPage, setCurrentPage] = useState(pageInfo?.currentPage);
     const [loading, setLoading] = useState(false);
-    const [pageInfoState, setPageInfoState] = useState(pageInfo);   
+    const [pageInfoState, setPageInfoState] = useState(pageInfo);  
 
     useEffect(() => {
-        setData(questions?.questions);
-        setCurrentPage(pageInfo?.currentPage);
+        setData(questions);
+        setCurrentPage(pageInfo);
         setPageInfoState(pageInfo);
     }, [questions, pageInfo]);
 
     const fetchData = async () => {
-        if (loading || !pageInfoState.totalCount) return;
+        if (loading || !pageInfoState) return;
         setLoading(true);
         try {
             const newPage = currentPage + 1;
@@ -37,14 +38,14 @@ const QuestionList = ({ questions, pageInfo }) => {
         if (data?.length === 0) {
             return <NoDataFound label="Questions" />;
         }
-        return data?.map((question) => {
-            const { _id, slug, title, createdAt, tags, answersCount, user } = question;
+        return data?.map(async (question) => {
+            const { id, slug, title, authorId, tags } = question;  
 
             return (
-                <div key={_id} className="border p-4 rounded-lg shadow-sm mb-4">
+                <div key={id} className="border p-4 rounded-lg bg-white shadow-sm mb-4">
                     <div className="flex justify-between items-center mb-2">
                         <h3 className="text-lg font-semibold">
-                            <Link href={`/question/${_id}/${slug}`}>
+                            <Link href={`/question/${id}/${slug}`}>
                                 {title}
                             </Link>
                         </h3>
@@ -56,10 +57,10 @@ const QuestionList = ({ questions, pageInfo }) => {
                     </div>
                     <div className="flex justify-between items-center text-gray-500 text-sm">
                         <div className="flex items-center">
-                            <span><span className='text-black'>{answersCount}</span> Answers</span>
+                            <span><span className='text-black'>{10}</span> Answers</span>
                         </div>
                     </div>
-                    {/* <AuthorInfo  author={user} /> */}
+                    <AuthorInfo author={authorId} />
                 </div>
             );
         });
@@ -67,7 +68,7 @@ const QuestionList = ({ questions, pageInfo }) => {
 
     const PaginationControls = () => (
         <div className="flex justify-center mt-4">
-            {pageInfoState?.totalPages !== currentPage && (
+            {pageInfoState !== currentPage && (
                 <button
                     onClick={() => fetchData()}
                     disabled={loading}

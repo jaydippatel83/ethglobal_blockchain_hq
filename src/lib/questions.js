@@ -1,4 +1,4 @@
-import { collection, query, getDocs, limit, orderBy, startAfter, serverTimestamp, doc, updateDoc, where } from "firebase/firestore";
+import { collection, query, getDocs, limit, orderBy, startAfter, serverTimestamp, doc, updateDoc, where, addDoc } from "firebase/firestore";
 import { cache } from "react";
 import { db } from "./firebase";
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from "firebase/storage";
@@ -89,17 +89,9 @@ export async function fetchAllQuestions(page = 1, pageSize = 12, lastVisible = n
         const questions = [];
         querySnapshot.forEach((doc) => {
             questions.push({ id: doc.id, ...doc.data() });
-        });
-
-        const lastDoc = querySnapshot.docs[querySnapshot.docs.length - 1];
-
-        // Return questions and pagination info
+        }); 
         return {
-            questions,
-            pageInfo: {
-                lastVisible: lastDoc,  
-                hasMore: querySnapshot.size === pageSize, 
-            },
+            questions 
         };
 
     } catch (error) {
@@ -108,7 +100,7 @@ export async function fetchAllQuestions(page = 1, pageSize = 12, lastVisible = n
     }
 }
 
-export async function fetchQuestionsByAuthor(authorId, page = 1, pageSize = 12, lastVisible = null) {
+export async function fetchQuestionsByAuthor(wallet, page = 1, pageSize = 12, lastVisible = null) {
     try {
         // Reference the Firestore "questions" collection
         const questionsRef = collection(db, "questions");
@@ -116,7 +108,7 @@ export async function fetchQuestionsByAuthor(authorId, page = 1, pageSize = 12, 
         // Build query to filter by authorId
         let questionsQuery = query(
             questionsRef,
-            where("authorId", "==", authorId), // Filter by authorId
+            where("wallet", "==", wallet), // Filter by authorId
             orderBy("createdAt", "desc"), // Order by creation date
             limit(pageSize) // Limit results to pageSize
         );
@@ -125,7 +117,7 @@ export async function fetchQuestionsByAuthor(authorId, page = 1, pageSize = 12, 
         if (lastVisible) {
             questionsQuery = query(
                 questionsRef,
-                where("authorId", "==", authorId),
+                where("wallet", "==", wallet),
                 orderBy("createdAt", "desc"),
                 startAfter(lastVisible), // Start after the last document from the previous query
                 limit(pageSize)
