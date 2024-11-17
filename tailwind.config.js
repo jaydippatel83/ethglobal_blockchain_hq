@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const plugin = require('tailwindcss/plugin');
+
 module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -8,14 +10,32 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primaryBlue: "#0057FF",  // Background blue
-        accentYellow: "#FFDA77", // Card background yellow
-        darkText: "#1A1A1A",     // Dark text color
-        lightGray: "#F2F2F2",    // Light gray for backgrounds
-        secondaryText: "#606060", // Light text for descriptions
-        highlightGreen: "#A0F2E3" // Countdown highlight color
+        pinkCustom: "#F59ED3",
+        yellowCustom: "#FFC567",
+        blueCustom: "#bfa1ff",
+        greenCustom: "#BEF0CD",
+        limeCustom: "#C2FFB6",
+        sckinCustom: "#fcf9ef"
+      },
+      borderRadius: {
+        custom: "15px",
+      },
+      fontFamily: {
+        bebas: ['var(--font-bebas)'],
+        unigo:['var(--font-unigo)']
+      },
+      textShadow: {
+        white: "-2px -2px 0 #fff, 2px 2px 0 #fff",
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addUtilities }) {
+      addUtilities({
+        ".text-shadow-white": {
+          textShadow: "-2px -2px 0 #fff, 2px 2px 0 #fff",
+        },
+      });
+    }),
+  ],
 };

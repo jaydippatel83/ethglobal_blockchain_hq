@@ -3,12 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "concurrently \"npm run dev-next\" \"npm run start-bot\"",
+    "dev-next": "next dev",
+    "start-bot": "node src/app/bot.js",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "compile": "tact --config ./tact.config.json",
+    "vite:dev": "vite",
+    "vite:build": "vite build",
+    "vite:start": "vite preview"
   },
+
   "dependencies": {
+    "@dicebear/collection": "^9.2.1",
+    "@dicebear/core": "^9.2.1",
     "@heroicons/react": "^2.1.5",
     "@usecapsule/evm-wallet-connectors": "^1.7.0",
     "@usecapsule/react-sdk": "^4.7.0",
@@ -18,6 +27,7 @@
     "crypto-browserify": "^3.12.1",
     "encoding": "^0.1.13",
     "ethers": "^5.7.0",
+    "firebase": "^11.0.2",
     "next": "15.0.3",
     "pino-pretty": "^13.0.0",
     "react": "19.0.0-rc-66855b96-20241106",
